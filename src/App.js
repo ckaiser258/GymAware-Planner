@@ -1,12 +1,12 @@
 import './App.css';
-import Table from "./components/Table"
 import Form from './components/Form'
+import WorkoutTable from './components/WorkoutTable';
 
 function App() {
   return (
     <div className="App">
       <Form />
-      <Table />
+      <WorkoutTable />
     </div>
   );
 }
