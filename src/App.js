@@ -5,15 +5,28 @@ import WorkoutTable from "./components/WorkoutTable";
 import { TextField, MenuItem } from "@material-ui/core";
 
 function App() {
-  const [day, setDay] = useState("Select Your Day")
+  const [day, setDay] = useState("");
+
+  function changeDay(e) {
+    //Set day to menu value
+    setDay(e.target.value);
+  }
+
   return (
     <div className="App">
-      <TextField select helperText="What day is it?" value={day}>
-        <MenuItem>Lower Body</MenuItem>
-        <MenuItem>Upper Body</MenuItem>
+      {/* Create upper/lower body selection menu */}
+      <TextField select onChange={changeDay} helperText="What day is it?">
+        <MenuItem onChange={changeDay} value="Lower Body">
+          Lower Body
+        </MenuItem>
+        <MenuItem onChange={changeDay} value="Upper Body">
+          Upper Body
+        </MenuItem>
       </TextField>
+
+      {/* Render form and table. Pass day as props to table. */}
       <Form />
-      <WorkoutTable />
+      <WorkoutTable day={day} />
     </div>
   );
 }

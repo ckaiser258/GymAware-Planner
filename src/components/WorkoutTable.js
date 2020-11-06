@@ -10,7 +10,8 @@ import {
   Container,
 } from "@material-ui/core";
 
-function WorkoutTable() {
+function WorkoutTable({day}) {
+    console.log(day)
   return (
     <Container>
       <TableContainer component={Paper}>
