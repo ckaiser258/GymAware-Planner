@@ -28,7 +28,7 @@ function Form({day}) {
       </TextField>
     </div>
     <div>
-        <WorkoutTable day={day} />
+        <WorkoutTable day={day} velocity={velocity} />
     </div>
     </>
   );
