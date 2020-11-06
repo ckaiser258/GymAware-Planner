@@ -1,5 +1,4 @@
 const UpperBody = [
-  { name: "Bench Press" },
   { name: "Overhead Press" },
   { name: "Bent-Over BB Row" },
   { name: "Pull-Ups" },
@@ -9,7 +8,6 @@ const UpperBody = [
 ];
 
 const LowerBody = [
-  { name: "Squat" },
   { name: "RDL" },
   { name: "Forward Lunge" },
   { name: "Bulgarian SS" },
@@ -39,3 +37,9 @@ const Velocities = [
     range: ">1.5",
   },
 ];
+
+export const Data = {
+    UpperBody,
+    LowerBody,
+    Velocities
+} 
