@@ -11,8 +11,9 @@ function Form() {
     <div>
       <TextField
         select
-        helperText="Please select your max velocity from last week."
+        onChange={changeVelocity}
         value={velocity}
+        helperText="Please select your max velocity from last week."
       >
         <MenuItem onChange={changeVelocity} value="Testing">
           Testing
