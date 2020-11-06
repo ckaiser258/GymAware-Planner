@@ -59,6 +59,8 @@ function WorkoutTable({ day }) {
                 return (
                   <TableRow>
                     <TableCell>{exercise.name}</TableCell>
+                    <TableCell>N/A</TableCell>
+                    <TableCell>{exercise.setsReps}</TableCell>
                   </TableRow>
                 );
               })}
