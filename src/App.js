@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
 import Form from "./components/Form";
-import WorkoutTable from "./components/WorkoutTable";
 import { TextField, MenuItem } from "@material-ui/core";
 
 function App() {
@@ -27,9 +26,8 @@ function App() {
         </MenuItem>
       </TextField>
 
-      {/* Render form and table. Pass day as props to table. */}
-      <Form />
-      <WorkoutTable day={day} />
+      {/* Render form and table. Pass day as props. */}
+      <Form day={day}/>
     </div>
   );
 }
