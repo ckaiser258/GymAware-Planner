@@ -19,54 +19,69 @@ function WorkoutTable({ day }) {
 
   //Return respective exercises based on day
 
+  const setUpperBody = () => {
+    setMainLift("Bench Press");
+    setExercises(Data.UpperBody);
+  };
+
+  const setLowerBody = () => {
+    setMainLift("Squat");
+    setExercises(Data.LowerBody);
+  };
+
   useEffect(() => {
     if (day === "Upper Body") {
-      setMainLift("Bench Press");
-      setExercises(Data.UpperBody);
+      setUpperBody();
     } else if (day === "Lower Body") {
-      setMainLift("Squat");
-      setExercises(Data.LowerBody);
+      setLowerBody();
     }
   }, [day]);
 
   return (
     <Container>
       {day ? (
-        <TableContainer component={Paper}>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell style={{ fontWeight: "bold" }}>Exercise</TableCell>
-                <TableCell style={{ fontWeight: "bold" }}>
-                  Target Velocity (m/s)
-                </TableCell>
-                <TableCell style={{ fontWeight: "bold" }}>
-                  Sets X Reps
-                </TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              <TableRow>
-                <TableCell>{mainLift}</TableCell>
-                <TableCell>{velocity}</TableCell>
-                <TableCell>
-                  3 X N/A
-                  <br />
-                  Stop set at 20% drop in velocity
-                </TableCell>
-              </TableRow>
-              {exercises.map((exercise) => {
-                return (
-                  <TableRow>
-                    <TableCell>{exercise.name}</TableCell>
-                    <TableCell>N/A</TableCell>
-                    <TableCell>{exercise.setsReps}</TableCell>
-                  </TableRow>
-                );
-              })}
-            </TableBody>
-          </Table>
-        </TableContainer>
+        <>
+          <Typography variant="h4">
+            Focus this phase: {velocity.name}
+          </Typography>
+          <TableContainer component={Paper}>
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableCell style={{ fontWeight: "bold" }}>Exercise</TableCell>
+                  <TableCell style={{ fontWeight: "bold" }}>
+                    Target Velocity (m/s)
+                  </TableCell>
+                  <TableCell style={{ fontWeight: "bold" }}>
+                    Sets X Reps
+                  </TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                <TableRow>
+                  {/* Return main lift and velocity in first row */}
+                  <TableCell>{mainLift}</TableCell>
+                  <TableCell>{velocity}</TableCell>
+                  <TableCell>
+                    3 X N/A
+                    <br />
+                    Stop set at 20% drop in velocity
+                  </TableCell>
+                </TableRow>
+                {/* Return the remainder of the exercises with sets x reps */}
+                {exercises.map((exercise) => {
+                  return (
+                    <TableRow>
+                      <TableCell>{exercise.name}</TableCell>
+                      <TableCell>N/A</TableCell>
+                      <TableCell>{exercise.setsReps}</TableCell>
+                    </TableRow>
+                  );
+                })}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </>
       ) : (
         <Typography variant="h2">
           Please Select A Day From The Dropdown Menu Above
