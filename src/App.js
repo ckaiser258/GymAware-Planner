@@ -11,6 +11,8 @@ function App() {
 
   return (
     <div className="App">
+      <h1>GymAware PLANNER</h1>
+
       {/* Create upper/lower body selection menu */}
       <TextField
         select
@@ -27,7 +29,7 @@ function App() {
       </TextField>
 
       {/* Render form and table. Pass day as props. */}
-      <Form day={day}/>
+      <Form day={day} />
     </div>
   );
 }
