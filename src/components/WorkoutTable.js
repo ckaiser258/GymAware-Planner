@@ -12,13 +12,11 @@ import {
   Typography,
 } from "@material-ui/core";
 
-function WorkoutTable({ day }) {
-  const [velocity, setVelocity] = useState("");
+function WorkoutTable({ day, velocityRange, velocityName }) {
   const [mainLift, setMainLift] = useState("");
   const [exercises, setExercises] = useState([]);
 
   //Return respective exercises based on day
-
   const setUpperBody = () => {
     setMainLift("Bench Press");
     setExercises(Data.UpperBody);
@@ -28,6 +26,29 @@ function WorkoutTable({ day }) {
     setMainLift("Squat");
     setExercises(Data.LowerBody);
   };
+
+  const velocities = Data.Velocities;
+
+  const currentVelocityObj = Data.Velocities.filter((velocity) => {
+    return velocity.name === velocityName;
+  });
+
+  const thisPhaseIndex = velocities.indexOf(currentVelocityObj[0]);
+
+  const getPhaseName = () => {
+    if (thisPhaseIndex === velocities.length - 1) return velocities[0].name;
+    return velocities[thisPhaseIndex + 1].name;
+  };
+
+  const getPhaseRange = () => {
+    if (!velocityRange) return;
+    if (thisPhaseIndex === velocities.length - 1) return velocities[0].range;
+    return velocities[thisPhaseIndex + 1].range;
+  };
+
+  const thisPhaseName = getPhaseName();
+
+  const thisPhaseRange = getPhaseRange();
 
   useEffect(() => {
     if (day === "Upper Body") {
@@ -41,9 +62,11 @@ function WorkoutTable({ day }) {
     <Container>
       {day ? (
         <>
-          <Typography variant="h4">
-            Focus this phase: {velocity.name}
-          </Typography>
+          {velocityRange ? (
+            <Typography variant="h4">
+              Focus this phase: {thisPhaseName}
+            </Typography>
+          ) : null}
           <TableContainer component={Paper}>
             <Table>
               <TableHead>
@@ -61,7 +84,7 @@ function WorkoutTable({ day }) {
                 <TableRow>
                   {/* Return main lift and velocity in first row */}
                   <TableCell>{mainLift}</TableCell>
-                  <TableCell>{velocity}</TableCell>
+                  <TableCell>{thisPhaseRange}</TableCell>
                   <TableCell>
                     3 X N/A
                     <br />
