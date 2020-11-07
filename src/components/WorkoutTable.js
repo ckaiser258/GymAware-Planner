@@ -27,22 +27,30 @@ function WorkoutTable({ day, velocityRange, velocityName }) {
     setExercises(Data.LowerBody);
   };
 
+  //Create copy of velocities array for readability.
   const velocities = Data.Velocities;
 
+  //Get the current velocity object based on the velocityName prop
   const currentVelocityObj = Data.Velocities.filter((velocity) => {
     return velocity.name === velocityName;
   });
 
+  //Returns integer of the index of current velocity object
   const thisPhaseIndex = velocities.indexOf(currentVelocityObj[0]);
 
   const getPhaseName = () => {
+    //If the selected velocity is at the end, cycle back to the beginning
     if (thisPhaseIndex === velocities.length - 1) return velocities[0].name;
+    //else return the name of the next velocity in the array
     return velocities[thisPhaseIndex + 1].name;
   };
 
   const getPhaseRange = () => {
+    //Leave velocity cell empty if none have been selected yet
     if (!velocityRange) return;
+    ////If the selected velocity is at the end, cycle back to the beginning
     if (thisPhaseIndex === velocities.length - 1) return velocities[0].range;
+    //else return the range of the next velocity in the array
     return velocities[thisPhaseIndex + 1].range;
   };
 
