@@ -4,7 +4,7 @@ import { Data } from "../Data";
 import { TextField, MenuItem } from "@material-ui/core";
 
 function Form({day}) {
-  const [velocity, setVelocity] = useState("");
+  const [velocity, setVelocity] = useState({});
 
   //Set velocity to menu value
   const changeVelocity = (e) => setVelocity(e.target.value);
@@ -20,7 +20,7 @@ function Form({day}) {
       >
         {Data.Velocities.map((velocity) => {
           return (
-            <MenuItem onChange={changeVelocity} value={velocity.range}>
+            <MenuItem onChange={changeVelocity} value={velocity}>
               {velocity.range}
             </MenuItem>
           );
