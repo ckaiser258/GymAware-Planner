@@ -25,7 +25,7 @@ function Form({ day }) {
 
   return (
     <>
-      <div>
+      <div style={{marginBottom: 20}}>
         <TextField
           select
           onChange={changeVelocity}

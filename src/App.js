@@ -14,6 +14,7 @@ function App() {
       <h1>GymAware PLANNER</h1>
 
       {/* Create upper/lower body selection menu */}
+      <div style={{margin: 10}}>
       <TextField
         select
         onChange={changeDay}
@@ -27,6 +28,7 @@ function App() {
           Upper Body
         </MenuItem>
       </TextField>
+      </div>
 
       {/* Render form and table. Pass day as props. */}
       <Form day={day} />
