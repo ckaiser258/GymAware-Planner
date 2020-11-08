@@ -10,21 +10,21 @@ function Form({ day }) {
   //Set velocity to menu value
   const changeVelocity = (e) => setVelocityRange(e.target.value);
 
-  const fetchVelocityName = () => {
+  const getVelocityName = () => {
     //Find the velocity object that matches what was 
     const currentVelocity = Data.Velocities.filter((velocity) => {
       return velocity.range === velocityRange;
     });
     //We need this if statement to prevent "cannot find property name of undefined"
-    //if nothing has yet been selected
+    //upon initial render, since nothing has been selected yet
     if (currentVelocity[0]) {
-      //Set the velocityName state to the name property of the object being returned
+      //Set the velocityName state to the name property of the object found above
       setVelocityName(currentVelocity[0].name);
     }
   };
 
   useEffect(() => {
-    fetchVelocityName()
+    getVelocityName()
   }, [velocityRange])
 
   return (
