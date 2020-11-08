@@ -48,7 +48,7 @@ function WorkoutTable({ day, velocityRange, velocityName }) {
   const getPhaseRange = () => {
     //Leave velocity cell empty if none have been selected yet
     if (!velocityRange) return;
-    ////If the selected velocity is at the end, cycle back to the beginning
+    //If the selected velocity is at the end, cycle back to the beginning
     if (thisPhaseIndex === velocities.length - 1) return velocities[0].range;
     //else return the range of the next velocity in the array
     return velocities[thisPhaseIndex + 1].range;
@@ -68,13 +68,12 @@ function WorkoutTable({ day, velocityRange, velocityName }) {
 
   return (
     <Container>
+      {/* Don't render table until day and velocity have been selected */}
       {day && velocityRange ? (
         <>
-          {velocityRange ? (
-            <Typography variant="h4">
-              Focus this phase: {thisPhaseName}
-            </Typography>
-          ) : null}
+          <Typography variant="h4">
+            Focus this phase: {thisPhaseName}
+          </Typography>
           <TableContainer component={Paper}>
             <Table>
               <TableHead>
