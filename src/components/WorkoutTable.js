@@ -68,7 +68,7 @@ function WorkoutTable({ day, velocityRange, velocityName }) {
 
   return (
     <Container>
-      {day ? (
+      {day && velocityRange ? (
         <>
           {velocityRange ? (
             <Typography variant="h4">
@@ -114,8 +114,9 @@ function WorkoutTable({ day, velocityRange, velocityName }) {
           </TableContainer>
         </>
       ) : (
-        <Typography variant="h2">
-          Please Select A Day From The Dropdown Menu Above
+        <Typography variant="h3" style={{marginTop: 80}}>
+          Please Select A Day From The Dropdown Menu Above As Well As Your
+          Velocity Range From Last Phase
         </Typography>
       )}
     </Container>
