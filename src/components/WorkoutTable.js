@@ -114,9 +114,9 @@ function WorkoutTable({ day, velocityRange, velocityName }) {
           </TableContainer>
         </>
       ) : (
-        <Typography variant="h3" style={{marginTop: 80}}>
-          Please Select A Day From The Dropdown Menu Above As Well As Your
-          Velocity Range From Last Phase
+        <Typography variant="h3" style={{ marginTop: 80 }}>
+          Please Select A Day And Your Velocity Range From Last Phase From The
+          Dropdown Menus Above
         </Typography>
       )}
     </Container>
