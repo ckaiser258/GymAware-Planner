@@ -11,10 +11,14 @@ function Form({ day }) {
   const changeVelocity = (e) => setVelocityRange(e.target.value);
 
   const fetchVelocityName = () => {
+    //Find the velocity object that matches what was 
     const currentVelocity = Data.Velocities.filter((velocity) => {
       return velocity.range === velocityRange;
     });
+    //We need this if statement to prevent "cannot find property name of undefined"
+    //if nothing has yet been selected
     if (currentVelocity[0]) {
+      //Set the velocityName state to the name property of the object being returned
       setVelocityName(currentVelocity[0].name);
     }
   };
