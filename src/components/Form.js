@@ -11,7 +11,7 @@ function Form({ day }) {
   const changeVelocity = (e) => setVelocityRange(e.target.value);
 
   const getVelocityName = () => {
-    //Find the velocity object that matches what was 
+    //Find the velocity object that matches what was selected from menu
     const currentVelocity = Data.Velocities.filter((velocity) => {
       return velocity.range === velocityRange;
     });
