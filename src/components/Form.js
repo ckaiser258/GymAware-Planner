@@ -24,12 +24,12 @@ function Form({ day }) {
   };
 
   useEffect(() => {
-    getVelocityName()
-  }, [velocityRange])
+    getVelocityName();
+  }, [velocityRange]);
 
   return (
     <>
-      <div style={{marginBottom: 20}}>
+      <div style={{ marginBottom: 20 }}>
         <TextField
           select
           onChange={changeVelocity}
@@ -46,7 +46,11 @@ function Form({ day }) {
         </TextField>
       </div>
       <div>
-        <WorkoutTable day={day} velocityRange={velocityRange} velocityName={velocityName} />
+        <WorkoutTable
+          day={day}
+          velocityRange={velocityRange}
+          velocityName={velocityName}
+        />
       </div>
     </>
   );
