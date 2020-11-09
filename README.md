@@ -1,3 +1,3 @@
-# GymAware-Planner
+# VBT-Planner
 
 ![](./public/GymAware-gif.gif)
