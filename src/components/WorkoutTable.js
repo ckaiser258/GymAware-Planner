@@ -16,6 +16,14 @@ function WorkoutTable({ day, velocityRange, velocityName }) {
   const [mainLift, setMainLift] = useState("");
   const [exercises, setExercises] = useState([]);
 
+  useEffect(() => {
+    if (day === "Upper Body") {
+      setUpperBody();
+    } else if (day === "Lower Body") {
+      setLowerBody();
+    }
+  }, [day]);
+
   //Return respective exercises based on day
   const setUpperBody = () => {
     setMainLift("Bench Press");
@@ -61,14 +69,6 @@ function WorkoutTable({ day, velocityRange, velocityName }) {
   const thisPhaseName = getPhaseName();
 
   const thisPhaseRange = getPhaseRange();
-
-  useEffect(() => {
-    if (day === "Upper Body") {
-      setUpperBody();
-    } else if (day === "Lower Body") {
-      setLowerBody();
-    }
-  }, [day]);
 
   return (
     <Container>
