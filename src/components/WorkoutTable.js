@@ -30,13 +30,17 @@ function WorkoutTable({ day, velocityRange, velocityName }) {
   //Create copy of velocities array for readability.
   const velocities = Data.Velocities;
 
-  //Get the current velocity object based on the velocityName prop
-  const currentVelocityObj = velocities.filter((velocity) => {
-    return velocity.name === velocityName;
-  });
+  const getPhaseIndex = () => {
+    //Get the current velocity object based on the velocityName prop
+    const currentVelocityObj = velocities.filter((velocity) => {
+      return velocity.name === velocityName;
+    });
 
-  //Returns integer of the index of current velocity object
-  const thisPhaseIndex = velocities.indexOf(currentVelocityObj[0]);
+    //Returns integer of the index of current velocity object
+    return velocities.indexOf(currentVelocityObj[0]);
+  };
+
+  const thisPhaseIndex = getPhaseIndex();
 
   const getPhaseName = () => {
     //If the selected velocity is at the end, cycle back to the beginning
