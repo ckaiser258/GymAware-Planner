@@ -23,9 +23,7 @@ function Form({ day }) {
     }
   };
 
-  useEffect(() => {
-    getVelocityName();
-  }, [velocityRange]);
+  useEffect(() => getVelocityName(), [velocityRange]);
 
   return (
     <>

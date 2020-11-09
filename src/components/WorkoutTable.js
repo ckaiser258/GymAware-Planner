@@ -31,7 +31,7 @@ function WorkoutTable({ day, velocityRange, velocityName }) {
   const velocities = Data.Velocities;
 
   //Get the current velocity object based on the velocityName prop
-  const currentVelocityObj = Data.Velocities.filter((velocity) => {
+  const currentVelocityObj = velocities.filter((velocity) => {
     return velocity.name === velocityName;
   });
 
